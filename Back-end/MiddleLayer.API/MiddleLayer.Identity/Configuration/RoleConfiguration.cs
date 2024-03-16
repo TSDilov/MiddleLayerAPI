@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace TaskManager.Identity.Configuration
+namespace MiddleLayer.Identity.Configuration
 {
     public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
     {
@@ -11,13 +11,13 @@ namespace TaskManager.Identity.Configuration
             builder.HasData(
                 new IdentityRole
                 {
-                    Id = "44caf514-ddb5-418f-9c15-3708e60cb89f",
+                    Id = "ecb0aa14-0cab-48a4-a604-46d05c60c3cc",
                     Name = RoleConstants.User,
                     NormalizedName = "USER"
                 },
                 new IdentityRole
                 {
-                    Id = "9df6d6a8-93f7-4ed0-af5b-c27b03c80837",
+                    Id = "8752fca0-2b11-4087-8825-a50cf31cc200",
                     Name = RoleConstants.Administrator,
                     NormalizedName = "ADMINISTRATOR"
                 });

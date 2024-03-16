@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TaskManager.Identity.Models;
+using MiddleLayer.Identity.Models;
 
-namespace TaskManager.Identity.Configuration
+namespace MiddleLayer.Identity.Configuration
 {
     public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
@@ -13,7 +13,7 @@ namespace TaskManager.Identity.Configuration
             builder.HasData(
                 new ApplicationUser
                 {
-                    Id = "00fabaf2-1109-4b37-bc65-aac6cdf24638",
+                    Id = "704aea0a-20b0-4792-9aa7-b28f0b29e580",
                     Email = "admin@localhost.com",
                     NormalizedEmail = "ADMIN@LOCALHOST.COM",
                     FirstName = "System",
@@ -25,7 +25,7 @@ namespace TaskManager.Identity.Configuration
                 },
                 new ApplicationUser
                 {
-                    Id = "a5540e34-9344-4894-88f0-05f2182e60d7",
+                    Id = "e993f47a-9c29-4e45-9ab6-d086d4dd3704",
                     Email = "user@localhost.com",
                     NormalizedEmail = "USER@LOCALHOST.COM",
                     FirstName = "System",

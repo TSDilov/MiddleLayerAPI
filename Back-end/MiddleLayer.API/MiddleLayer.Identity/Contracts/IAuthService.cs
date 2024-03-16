@@ -1,15 +1,11 @@
-﻿using TaskManager.Application.Models;
+﻿using MiddleLayer.Identity.Models;
 
-namespace TaskManager.Application.Contracts.Identity
+namespace MiddleLayer.Identity.Contracts
 {
     public interface IAuthService
     {
         Task<AuthResponse> Login(AuthRequest request);
 
         Task<RegistrationResponse> Register(RegistrationRequest request);
-
-        Task<AuthResponse> RegisterUserFromGoogleAsync(string email);
-
-        Task<AuthResponse> GetUserByEmailAsync(string email);
     }
 }
