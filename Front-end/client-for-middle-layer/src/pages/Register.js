@@ -14,7 +14,9 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const [error, setError] = useState('');
+  const [errorObjectOrString, setError] = useState(() => {
+    return ''; 
+  })
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,7 +37,7 @@ const Register = () => {
       navigate('/login');
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        const errorMessage = error.response.data.message;
+        const errorMessage = error.response.data;
         setError(errorMessage);
       } else {
         console.error('Error registering:', error.message);
@@ -43,10 +45,20 @@ const Register = () => {
     }
   };
 
+  const { errors } = errorObjectOrString;
+
   return (
     <div className="container">
       <h2>Register</h2>
-      {error && <div className="error">{error}</div>}
+      {errorObjectOrString && (
+        <div style={{ backgroundColor: errorObjectOrString ? 'red' : 'transparent' }}>
+          <ul>
+            {typeof errors === 'object' ? (
+              Object.entries(errors).map(([field, message]) => (<li key={field}>{field}: {message}</li>)) ) 
+              : ( <li>{errorObjectOrString}</li>)}
+          </ul>
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input

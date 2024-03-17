@@ -13,7 +13,9 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [error, setError] = useState('');
+  const [error, setError] = useState(() => {
+    return ''; 
+  })
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,12 +40,10 @@ const Login = () => {
     }
   };
 
-  
-
   return (
     <div className="container">
       <h2>Login</h2>
-      {error && <div className="error">{error}</div>}
+      {error && <div className="error" style={{ backgroundColor: 'red' }}>{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Email:</label>
