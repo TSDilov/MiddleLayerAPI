@@ -1,0 +1,19 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .initialize-button {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .character-card {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }

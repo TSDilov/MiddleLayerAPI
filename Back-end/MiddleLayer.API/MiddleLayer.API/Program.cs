@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using MiddleLayer.Identity;
+using MiddleLayer.Infrastructure;
 
 internal class Program
 {
@@ -11,6 +12,7 @@ internal class Program
         // Add services to the container.
 
         builder.Services.ConfigureIdentityServices(builder.Configuration);
+        builder.Services.ConfigureInfrastructureServices(builder.Configuration);
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -23,6 +25,11 @@ internal class Program
         });
 
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddHttpClient(ApiPaths.MiddleLayerApiName, client =>
+        {
+            client.BaseAddress = new Uri("https://anapioficeandfire.com/api/characters/581");
+        });
 
         var app = builder.Build();
 
@@ -81,7 +88,7 @@ internal class Program
             c.SwaggerDoc("v1", new OpenApiInfo
             {
                 Version = "v1",
-                Title = "Task Management Api",
+                Title = "MiddleLayer Api",
             });
 
         });

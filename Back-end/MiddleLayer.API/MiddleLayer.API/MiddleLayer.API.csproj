@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MiddleLayer.Identity\MiddleLayer.Identity.csproj" />
+    <ProjectReference Include="..\MiddleLayer.Infrastructure\MiddleLayer.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
