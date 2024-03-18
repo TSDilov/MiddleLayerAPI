@@ -11,7 +11,7 @@ namespace MiddleLayer.Infrastructure.Services
 
         private readonly IHttpClientFactory httpClientFactory;
         private readonly ILogger<DataProviderHttpService> logger;
-        private readonly MongoDbContext dbContext;
+        private readonly IMongoCollection<Character> characterCollection;
 
         public DataProviderHttpService(
             IHttpClientFactory httpClientFactory, 
@@ -20,17 +20,16 @@ namespace MiddleLayer.Infrastructure.Services
         {
             this.httpClientFactory = httpClientFactory;
             this.logger = logger;
-            this.dbContext = dbContext;
+            this.characterCollection = dbContext.Characters;
         }
 
         public async Task<Character> GetData()
         {
             try
             {
-                var collection = this.dbContext.Characters;
 
                 // Check if the character already exists in the collection
-                var existingCharacter = await collection.Find(x => true).FirstOrDefaultAsync();
+                var existingCharacter = await this.characterCollection.Find(x => true).FirstOrDefaultAsync();
                 if (existingCharacter != null)
                 {
                     return existingCharacter;
@@ -40,12 +39,25 @@ namespace MiddleLayer.Infrastructure.Services
                 var response = await client.GetAsync("");
                 var jsonContent = await response.Content.ReadAsStringAsync();
                 var character = JsonSerializer.Deserialize<Character>(jsonContent);
-                await collection.InsertOneAsync(character);
+                await this.characterCollection.InsertOneAsync(character);
                 return character;
             }
             catch (Exception ex)
             {
                 this.logger.LogError(ex, "An error occurred during fetching data.");
+                throw;
+            }
+        }
+
+        public async Task DeleteData()
+        {
+            try
+            {
+                await this.characterCollection.DeleteManyAsync(x => true);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "An error occurred during data deletion.");
                 throw;
             }
         }

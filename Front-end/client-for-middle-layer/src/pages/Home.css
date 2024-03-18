@@ -3,17 +3,65 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .home-container h2 {
+    color: #f0f0f0; 
+  }
   
   .initialize-button {
     width: 200px;
+    padding: 15px 20px;
     margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    outline: none;
   }
   
+  .initialize-button:hover {
+    background-color: #45a049;
+  }
+  
+  .initialize-button:active {
+    transform: scale(1.1);
+  }
+  
+  .delete-button {
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: #f44336;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #b71c1c;
+  }
+
   .character-card {
     background-color: #ffffff;
     color: #000000;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; 
+    min-width: 200px;
+    max-width: 600px;
   }
+
+  
