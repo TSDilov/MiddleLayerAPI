@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleLayer.API", "MiddleLayer.API\MiddleLayer.API.csproj", "{318D4CE9-868D-4D2F-89B6-641271B53D50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddleLayer.API", "MiddleLayer.API\MiddleLayer.API.csproj", "{318D4CE9-868D-4D2F-89B6-641271B53D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleLayer.Identity", "MiddleLayer.Identity\MiddleLayer.Identity.csproj", "{38832D34-8C0B-4A56-9D34-01E6A6D68D0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddleLayer.Identity", "MiddleLayer.Identity\MiddleLayer.Identity.csproj", "{38832D34-8C0B-4A56-9D34-01E6A6D68D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleLayer.Infrastructure", "MiddleLayer.Infrastructure\MiddleLayer.Infrastructure.csproj", "{91F376DE-F209-4C4D-A5CD-8040E257D5B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{38832D34-8C0B-4A56-9D34-01E6A6D68D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38832D34-8C0B-4A56-9D34-01E6A6D68D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38832D34-8C0B-4A56-9D34-01E6A6D68D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F376DE-F209-4C4D-A5CD-8040E257D5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F376DE-F209-4C4D-A5CD-8040E257D5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F376DE-F209-4C4D-A5CD-8040E257D5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F376DE-F209-4C4D-A5CD-8040E257D5B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
