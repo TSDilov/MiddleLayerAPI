@@ -1,20 +1,18 @@
 ﻿using Microsoft.Extensions.Logging;
-using MiddleLayer.Infrastructure.Contracts;
 using MiddleLayer.Infrastructure.Models;
+using MiddleLayer.Infrastructure.Services;
 using MongoDB.Driver;
 using System.Text.Json;
 
-namespace MiddleLayer.Infrastructure.Services
+namespace MiddleLayer.Infrastructure.Queries
 {
-    public class DataProviderHttpService : IDataProviderHttpService
+    public class CharacterQuery
     {
-
         private readonly IHttpClientFactory httpClientFactory;
         private readonly ILogger<DataProviderHttpService> logger;
         private readonly IMongoCollection<Character> characterCollection;
 
-        public DataProviderHttpService(
-            IHttpClientFactory httpClientFactory, 
+        public CharacterQuery(IHttpClientFactory httpClientFactory,
             ILogger<DataProviderHttpService> logger,
             MongoDbContext dbContext)
         {
@@ -23,11 +21,10 @@ namespace MiddleLayer.Infrastructure.Services
             this.characterCollection = dbContext.Characters;
         }
 
-        public async Task<Character> GetData()
+        public async Task<Character> GetCharacterAsync()
         {
             try
             {
-                // Check if the character already exists in the collection
                 var existingCharacter = await this.characterCollection.Find(x => true).FirstOrDefaultAsync();
                 if (existingCharacter != null)
                 {
@@ -47,20 +44,5 @@ namespace MiddleLayer.Infrastructure.Services
                 throw;
             }
         }
-
-        public async Task DeleteData()
-        {
-            try
-            {
-                await this.characterCollection.DeleteManyAsync(x => true);
-            }
-            catch (Exception ex)
-            {
-                this.logger.LogError(ex, "An error occurred during data deletion.");
-                throw;
-            }
-        }
     }
 }
-
-

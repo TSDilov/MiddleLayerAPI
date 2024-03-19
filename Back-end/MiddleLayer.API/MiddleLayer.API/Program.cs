@@ -48,6 +48,8 @@ internal class Program
 
         app.MapControllers();
 
+        app.MapGraphQL("/graphql");
+
         app.Run();
     }
 
