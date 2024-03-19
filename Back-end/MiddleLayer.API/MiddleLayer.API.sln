@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddleLayer.API", "MiddleLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddleLayer.Identity", "MiddleLayer.Identity\MiddleLayer.Identity.csproj", "{38832D34-8C0B-4A56-9D34-01E6A6D68D0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleLayer.Infrastructure", "MiddleLayer.Infrastructure\MiddleLayer.Infrastructure.csproj", "{91F376DE-F209-4C4D-A5CD-8040E257D5B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddleLayer.Infrastructure", "MiddleLayer.Infrastructure\MiddleLayer.Infrastructure.csproj", "{91F376DE-F209-4C4D-A5CD-8040E257D5B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

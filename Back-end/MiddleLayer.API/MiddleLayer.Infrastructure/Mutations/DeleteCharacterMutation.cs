@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using MiddleLayer.Infrastructure.Models;
 using MiddleLayer.Infrastructure.Services;
 using MongoDB.Driver;
 
