@@ -25,6 +25,7 @@ dotnet restore
 cd Back-end\MiddleLayer.API\MiddleLayer.Infrastructure
 dotnet restore
 
+```bash
 # Setting up Database
 
 1. Install PostgreSQL on your system if you haven't already or create docker container
