@@ -25,23 +25,33 @@ dotnet restore
 cd Back-end\MiddleLayer.API\MiddleLayer.Infrastructure
 dotnet restore
 
-```bash
 # Setting up Database
 
 1. Install PostgreSQL on your system if you haven't already or create docker container
-docker run --name postgres-container -p 1433:5432 -e POSTGRES_PASSWORD=<your password> -d postgres
 
+```bash
+docker run --name postgres-container -p 1433:5432 -e POSTGRES_PASSWORD=<your password> -d postgres
+```
 2. Install MongoDb tool like Compas on your system if you haven't already or create docker container or you can chose to work with cloud based service like Atlas.
 
 # Run the GraphQL server
+
+```bash
 dotnet run
+```
 
 # Install dependencies for the React front-end project
+
+```bash
 cd Front-end\client-for-middle-layer
 npm install
+```
 
 # Start the React development server
+
+```bash
 npm start
+```
 
 # Technologies Used
 
