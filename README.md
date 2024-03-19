@@ -15,15 +15,24 @@ This project is a full-stack web application that integrates ASP.NET Web API, Gr
 
 
 # Clone the repository
-git clone <repository-url>
+
+```bash
+git clone https://github.com/TSDilov/MiddleLayerAPI.git
+```
 
 # Install dependencies for the ASP.NET Identity project
+
+```bash
 cd Back-end\MiddleLayer.API\MiddleLayer.Identity
 dotnet restore
+```
 
 # Install dependencies for the GraphQL server project
+
+```bash
 cd Back-end\MiddleLayer.API\MiddleLayer.Infrastructure
 dotnet restore
+```
 
 # Setting up Database
 
