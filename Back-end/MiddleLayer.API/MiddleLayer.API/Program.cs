@@ -2,7 +2,7 @@ using Microsoft.OpenApi.Models;
 using MiddleLayer.Identity;
 using MiddleLayer.Infrastructure;
 
-internal class Program
+public class Program
 {
     private static void Main(string[] args)
     {
