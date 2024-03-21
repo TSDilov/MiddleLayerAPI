@@ -21,6 +21,7 @@
     <PackageReference Include="Respawn" Version="6.2.1" />
     <PackageReference Include="Respawn.Postgres" Version="1.0.15" />
     <PackageReference Include="Testcontainers" Version="3.8.0" />
+    <PackageReference Include="Testcontainers.MongoDb" Version="3.8.0" />
     <PackageReference Include="Testcontainers.PostgreSql" Version="3.8.0" />
   </ItemGroup>
 

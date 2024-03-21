@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MiddleLayer.Tests.Helpers;
+using Testcontainers.MongoDb;
 using Testcontainers.PostgreSql;
 
 namespace MiddleLayer.Tests
@@ -10,6 +11,7 @@ namespace MiddleLayer.Tests
     public class Testing
     {
         private PostgreSqlContainer postgres;
+        private MongoDbContainer mongoDB;
 
         [OneTimeSetUp]
         public async Task RunBeforeAnyTest() 
@@ -21,7 +23,14 @@ namespace MiddleLayer.Tests
                 .WithPortBinding(9999, 5432)
                 .Build();
 
-            await this.postgres.StopAsync();
+            await this.postgres.StartAsync();
+
+            this.mongoDB = new Testcontainers.MongoDb.MongoDbBuilder()
+                .WithImage("mongo")
+                .WithName("mongo-container")
+                .Build();
+
+            await this.mongoDB.StartAsync();
 
             var application = new CustomWebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
@@ -40,7 +49,9 @@ namespace MiddleLayer.Tests
         [OneTimeTearDown]
         public async Task RunAfterAllTests()
         {
+            Client.Dispose();
             await this.postgres.DisposeAsync();
+            await this.mongoDB.DisposeAsync();
         }
 
         public static IConfiguration Configuration { get; private set; }
