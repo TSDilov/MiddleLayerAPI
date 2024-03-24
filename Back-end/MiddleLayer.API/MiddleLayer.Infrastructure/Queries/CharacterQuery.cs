@@ -25,7 +25,7 @@ namespace MiddleLayer.Infrastructure.Queries
         {
             try
             {
-                var existingCharacter = await this.characterCollection.Find(x => true).FirstOrDefaultAsync();
+                var existingCharacter = await this.characterCollection.Find(x => x.IsCreated == false).FirstOrDefaultAsync();
                 if (existingCharacter != null)
                 {
                     return existingCharacter;

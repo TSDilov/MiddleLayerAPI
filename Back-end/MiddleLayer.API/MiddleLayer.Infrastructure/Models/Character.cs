@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System.Text.Json.Serialization;
+using MiddleLayer.Infrastructure.Helpers;
 
 namespace MiddleLayer.Infrastructure.Models
 {
@@ -24,10 +25,12 @@ namespace MiddleLayer.Infrastructure.Models
         public string Culture { get; set; }
 
         [JsonPropertyName("born")]
-        public string Born { get; set; }
+        [JsonConverter(typeof(JsonDateTimeConverter))]
+        public DateTime? Born { get; set; }
 
         [JsonPropertyName("died")]
-        public string Died { get; set; }
+        [JsonConverter(typeof(JsonDateTimeConverter))]
+        public DateTime? Died { get; set; }
 
         [JsonPropertyName("titles")]
         public List<string> Titles { get; set; }
@@ -59,5 +62,7 @@ namespace MiddleLayer.Infrastructure.Models
         [JsonPropertyName("playedBy")]
         public List<string> PlayedBy { get; set; }
 
+        [JsonIgnore]
+        public bool IsCreated { get; set; } = false;
     }
 }

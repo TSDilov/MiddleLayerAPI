@@ -67,7 +67,7 @@ function Home() {
       }
       const mutation = gql`
         mutation {
-          deleteCharacterData {
+          deleteExternalCharacterData {
             boolean
           }
         }

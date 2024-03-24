@@ -13,7 +13,7 @@ namespace MiddleLayer.Infrastructure
         {
             services.AddGraphQLServer()
                 .AddQueryType<CharacterQuery>()
-                .AddMutationType<DeleteCharacterMutation>()
+                .AddMutationType<CharacterMutation>()
                 .AddMutationConventions();
 
             services.AddScoped<IDataProviderHttpService, DataProviderHttpService>();

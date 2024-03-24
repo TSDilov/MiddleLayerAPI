@@ -25,6 +25,9 @@ const Navbar = () => {
         <NavLink to="/" exact="true" className="navbar-link">
           Home
         </NavLink>
+        <NavLink to="/Create" exact="true" className="navbar-link">
+          Create your Character
+        </NavLink>
       </div>
       <div>
         {isLoggedIn ? (

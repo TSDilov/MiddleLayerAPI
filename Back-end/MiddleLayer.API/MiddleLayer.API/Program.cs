@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using MiddleLayer.Identity;
 using MiddleLayer.Infrastructure;
+using MiddleLayer.Infrastructure.Helpers;
 
 public class Program
 {
@@ -13,7 +14,10 @@ public class Program
 
         builder.Services.ConfigureIdentityServices(builder.Configuration);
         builder.Services.ConfigureInfrastructureServices(builder.Configuration);
-        builder.Services.AddControllers();
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.Converters.Add(new JsonDateTimeConverter());
+        });
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddCors(options =>

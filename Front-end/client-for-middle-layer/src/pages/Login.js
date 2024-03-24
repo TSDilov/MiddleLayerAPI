@@ -26,9 +26,9 @@ const Login = () => {
     const { email, password } = formData;
     try {
         const response = await axios.post('https://localhost:7238/Account/login', { email, password });
-        const { token, userName } = response.data;
+        const { token } = response.data;
         localStorage.setItem('jwtToken', token);
-        dispatch(loginSuccess(token, userName));
+        dispatch(loginSuccess(token));
         navigate('/');
     } catch (error) {
       if (error.response && error.response.status === 400) {
