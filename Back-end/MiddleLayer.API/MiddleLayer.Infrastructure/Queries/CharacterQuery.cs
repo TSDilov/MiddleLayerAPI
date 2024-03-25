@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MiddleLayer.Infrastructure.Dtos;
 using MiddleLayer.Infrastructure.Models;
 using MiddleLayer.Infrastructure.Services;
 using MongoDB.Driver;
@@ -41,6 +42,32 @@ namespace MiddleLayer.Infrastructure.Queries
             catch (Exception ex)
             {
                 this.logger.LogError(ex, "An error occurred during fetching data.");
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<CharacterDto>> GetAllCharacters()
+        {
+            try
+            {
+                var characters = await this.characterCollection.Find(x => true).ToListAsync();
+
+                var characterDtos = characters.Select(character => new CharacterDto
+                {
+                    Id = character.Id,
+                    Url = character.Url,
+                    Name = character.Name,
+                    Gender = character.Gender,
+                    Born = character.Born,
+                    Died = character.Died,
+                    Titles = character.Titles,
+                });
+
+                return characterDtos;
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "An error occurred while retrieving all characters.");
                 throw;
             }
         }

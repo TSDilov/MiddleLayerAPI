@@ -24,10 +24,17 @@ const Navbar = () => {
         </Link>
         <NavLink to="/" exact="true" className="navbar-link">
           Home
+        </NavLink>       
+        <NavLink to="/Characters" exact="true" className="navbar-link">
+          View Characters
         </NavLink>
-        <NavLink to="/Create" exact="true" className="navbar-link">
-          Create your Character
-        </NavLink>
+        {isLoggedIn && (
+          <>
+            <NavLink to="/Create" exact className="navbar-link">
+              Create your Character
+            </NavLink>
+          </>
+        )}
       </div>
       <div>
         {isLoggedIn ? (

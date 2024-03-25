@@ -1,8 +1,5 @@
-﻿using Azure;
-using MiddleLayer.Identity.Models;
+﻿using MiddleLayer.Identity.Models;
 using MiddleLayer.Infrastructure.Models;
-using System.Diagnostics.Contracts;
-using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 

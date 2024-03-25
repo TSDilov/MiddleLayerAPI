@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Characters from './pages/Characters'
 import Create from './pages/Create'
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/Create" exact element={<Create />} />
+            <Route path="/Characters" exact element={<Characters />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
           </Routes>

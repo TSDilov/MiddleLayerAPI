@@ -2,6 +2,7 @@
 using MiddleLayer.Infrastructure.Inputs;
 using MiddleLayer.Infrastructure.Models;
 using MiddleLayer.Infrastructure.Services;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace MiddleLayer.Infrastructure.Mutations
@@ -53,6 +54,22 @@ namespace MiddleLayer.Infrastructure.Mutations
             catch (Exception ex)
             {
                 this.logger.LogError(ex, "An error occurred during creating character.");
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteCharacter(string id)
+        {
+            try
+            {
+                var objectId = ObjectId.Parse(id);
+                var filter = Builders<Character>.Filter.Eq("_id", objectId);
+                var character = await this.characterCollection.FindOneAndDeleteAsync(filter);
+                return character != null;
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "An error occurred during deleting character.");
                 return false;
             }
         }
